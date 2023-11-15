@@ -1,0 +1,48 @@
+<style>
+    body {
+        background-color: black;
+        margin: 0;
+    }
+</style>
+
+<title>LetsPiano - Player</title>
+
+<iframe id="ytplayer" type="text/html" style="height: 100%; width: 100%;"
+    src="https://www.youtube.com/embed/{{ videoURL }}?autoplay=1&controls=0&fs=0&modestbranding=1&playsinline=1&color=white"
+    frameborder="0" allowfullscreen>
+</iframe>
+
+<playerid data-videoData="{{ videoURL }}">
+
+<script>
+    function sendPing() {
+        var url = window.location.href;
+        var xhr = new XMLHttpRequest();
+        xhr.open("PING", url, true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var responseData = xhr.responseText;
+                processData(responseData);
+            }
+        };
+
+        xhr.send();
+    }
+
+    function processData(data) {
+        var playerElement = document.querySelector('[data-videoData]');
+        if (playerElement) {
+            var videoURL = playerElement.getAttribute('data-videoData');
+            console.log('Video URL:', videoURL);
+            console.log('Received data:', data);
+            if(videoURL != data) {
+                window.location.reload();
+            }
+        } else {
+            console.error('Element met attribuut "data-videoData" niet gevonden');
+        }
+    }
+
+    setInterval(sendPing, 5000);
+</script>

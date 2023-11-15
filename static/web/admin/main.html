@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+        <script src="{{ url_for('static', filename='js/dark.js') }}"></script>
+        <title>LetsPiano - Admin</title>
+    </head>
+    <body>
+        
+        <form method="POST">
+            <h2>Nummer toevoegen</h2>
+            <label for="songName">Naam van het nummer:</label>
+            <input type="text" id="songName" name="songName" required>
+            <label for="songName">Instrument om het te spelen:</label>
+            <select style="width: 100%; margin-bottom: 5%;" type="text" id="instrument" name="instrument" required>
+                <option value="piano">Piano</option>
+                <option value="guitar">Gitaar</option>
+                <option value="saxophone">Saxofoon</option>
+                <option value="drums">Drum</option>
+              </select>
+            <input type="submit" value="Toevoegen">
+        </form>
+    </body>
+</html>

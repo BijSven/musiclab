@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/adminCon.css') }}">
+        <script src="{{ url_for('static', filename='js/dark.js') }}"></script>
+        <title>LetsPiano! - Setup</title>
+    </head>
+    <body>
+        <header>
+            <h2>Welcome to LetsPiano!</h2>
+        </header>
+        <main>
+            <p style="max-width: 50%;">Welcome to LetsPiano! We are a service that let you play your favorite music with cool instruction videos from YouTube. You can easily connect to your client with the code shown on your client device!</p>
+            <form method="post">
+                <label for="codeInput">Enter your code:</label>
+                <input name="code" type="text" id="codeInput" placeholder="Enter code...">
+                <input style="cursor: pointer;" type="submit" value="Toevoegen">
+            </form>
+        </main>
+    </body>
+</html>
